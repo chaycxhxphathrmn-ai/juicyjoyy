@@ -18,30 +18,7 @@
     <input id="login_email" placeholder="อีเมล">
     <input id="login_pass" type="password" placeholder="รหัสผ่าน">
     <button class="btn-primary" onclick="login()">เข้าสู่ระบบ</button>
-    <button class="btn-ghost" onclick="showPage('registerPage')">
-  สมัครสมาชิก
-</button>
-
   </div>
-  
- <!-- REGISTER -->
-<div id="registerPage" class="page card">
-  <h3>สมัครสมาชิก</h3>
-
-  <input id="reg_name" placeholder="ชื่อ">
-  <input id="reg_email" placeholder="อีเมล">
-  <input id="reg_pass" type="password" placeholder="รหัสผ่าน">
-
-  <button class="btn-primary" onclick="doRegister()">
-    สมัครสมาชิก
-  </button>
-
-  <button class="btn-ghost" onclick="showPage('loginPage')">
-    กลับ
-  </button>
-</div>
-
-
 
   <!-- MENU -->
   <div id="menuPage" class="page">
@@ -78,7 +55,6 @@
       <input placeholder="ชื่อผู้รับ">
       <input placeholder="เบอร์โทร">
       <input id="cust_address" placeholder="ที่อยู่จัดส่ง">
-
       <select onchange="toggleSlip(this.value)">
         <option value="cod">เก็บเงินปลายทาง</option>
         <option value="transfer">โอนเงิน</option>

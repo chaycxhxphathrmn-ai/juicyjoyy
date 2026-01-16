@@ -1,10 +1,3 @@
-function showPage(pageId){
-  document.querySelectorAll(".page").forEach(p=>{
-    p.classList.remove("active");
-  });
-  document.getElementById(pageId).classList.add("active");
-}
-
 // ---------- DATA ----------
 const menuData = [
   {name:"ชาไทย",price:50,img:"https://lh3.googleusercontent.com/YrMIcvm84log6477TliwniVrmrHe1k7TzHNMiByVpRuMN4mUXtg17zJHG_MloWHbbWOepgq_hXTPRLTf2dv_KX1XFVEaD7NE9CDfFNqMJXHhhL1X-4hXyRGA0VhBOrGkPjSa73E"},
@@ -213,64 +206,3 @@ function toast(msg){
 
 // INIT
 document.getElementById("cartCount").innerText=cart.length;
-
-// ---------- MEMBER SYSTEM ----------
-function register(){
-  const name = reg_name.value;
-  const email = reg_email.value;
-  const pass = reg_pass.value;
-
-  if(!name || !email || !pass){
-    toast("กรอกข้อมูลให้ครบ");
-    return;
-  }
-
-  const users = JSON.parse(localStorage.getItem("users")) || [];
-
-  if(users.find(u => u.email === email)){
-    toast("อีเมลนี้สมัครแล้ว");
-    return;
-  }
-
-  users.push({ name, email, pass });
-  localStorage.setItem("users", JSON.stringify(users));
-
-  toast("สมัครสมาชิกสำเร็จ");
-  showPage("loginPage");
-}
-
-function login(){
-  const email = login_email.value;
-  const pass = login_pass.value;
-
-  const users = JSON.parse(localStorage.getItem("users")) || [];
-  const user = users.find(u => u.email === email && u.pass === pass);
-
-  if(!user){
-    toast("อีเมลหรือรหัสผ่านผิด");
-    return;
-  }
-
-  localStorage.setItem("currentUser", JSON.stringify(user));
-  toast(`ยินดีต้อนรับ ${user.name}`);
-  showPage("menuPage");
-}
-function doRegister(){
-  const name = document.getElementById("reg_name").value;
-  const email = document.getElementById("reg_email").value;
-  const pass = document.getElementById("reg_pass").value;
-
-  if(!name || !email || !pass){
-    alert("กรุณากรอกข้อมูลให้ครบ");
-    return;
-  }
-
-  localStorage.setItem("user", JSON.stringify({
-    name,
-    email,
-    pass
-  }));
-
-  alert("สมัครสมาชิกสำเร็จ 🎉");
-  showPage("loginPage");
-}
