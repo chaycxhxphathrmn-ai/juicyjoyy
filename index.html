@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>JuicyJoy 🧋</title>
+
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<div class="container">
+
+  <!-- LOGIN -->
+  <div id="loginPage" class="page card active">
+    <h3>เข้าสู่ระบบ</h3>
+    <input id="login_email" placeholder="อีเมล">
+    <input id="login_pass" type="password" placeholder="รหัสผ่าน">
+    <button class="btn-primary" onclick="login()">เข้าสู่ระบบ</button>
+    <button class="btn-ghost" onclick="showPage('registerPage')">
+  สมัครสมาชิก
+</button>
+
+  </div>
+  
+ <!-- REGISTER -->
+<div id="registerPage" class="page card">
+  <h3>สมัครสมาชิก</h3>
+
+  <input id="reg_name" placeholder="ชื่อ">
+  <input id="reg_email" placeholder="อีเมล">
+  <input id="reg_pass" type="password" placeholder="รหัสผ่าน">
+
+  <button class="btn-primary" onclick="doRegister()">
+    สมัครสมาชิก
+  </button>
+
+  <button class="btn-ghost" onclick="showPage('loginPage')">
+    กลับ
+  </button>
+</div>
+
+
+
+  <!-- MENU -->
+  <div id="menuPage" class="page">
+    <div class="card">
+      <h3>เมนูเครื่องดื่ม</h3>
+      <div class="menu-grid" id="menuGrid"></div>
+
+      <button class="btn-primary" onclick="showPage('cartPage')">
+        ไปตะกร้า (<span id="cartCount">0</span>)
+      </button>
+    </div>
+  </div>
+
+  <!-- CART -->
+  <div id="cartPage" class="page">
+    <div class="card">
+      <h3>ตะกร้า</h3>
+      <div id="cartList"></div>
+
+      <div class="total">
+        รวมทั้งหมด: <b id="totalPrice">0</b> บาท
+      </div>
+
+      <button class="btn-primary" onclick="showPage('checkoutPage')">ชำระเงิน</button>
+      <button class="btn-ghost" onclick="showPage('menuPage')">กลับ</button>
+    </div>
+  </div>
+
+  <!-- CHECKOUT -->
+  <div id="checkoutPage" class="page">
+    <div class="card">
+      <h3>ชำระเงิน</h3>
+
+      <input placeholder="ชื่อผู้รับ">
+      <input placeholder="เบอร์โทร">
+      <input id="cust_address" placeholder="ที่อยู่จัดส่ง">
+
+      <select onchange="toggleSlip(this.value)">
+        <option value="cod">เก็บเงินปลายทาง</option>
+        <option value="transfer">โอนเงิน</option>
+      </select>
+
+      <button class="btn-ghost" onclick="openQR()">📷 ดู QR Code ร้าน</button>
+
+      <button class="btn-primary" onclick="confirmOrder()">ยืนยันสั่งซื้อ</button>
+      <button class="btn-ghost" onclick="showPage('cartPage')">กลับ</button>
+    </div>
+  </div>
+
+</div>
+
+<!-- TOAST -->
+<div id="toast"></div>
+
+<!-- QR MODAL -->
+<div id="qrBackdrop" onclick="closeQR()"></div>
+
+<div id="qrModal">
+  <h3>สแกนเพื่อโอนเงิน</h3>
+ <img src="สลิป.jpg">
+  <br><br>
+  <button class="btn-ghost" onclick="closeQR()">ปิด</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

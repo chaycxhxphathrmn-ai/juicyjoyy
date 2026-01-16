@@ -1,0 +1,107 @@
+body{
+  font-family:Poppins;
+  background:#fff0f6;
+  margin:0;
+}
+
+.container{
+  max-width:420px;
+  margin:auto;
+  padding:15px;
+}
+
+.card{
+  background:#fff;
+  padding:15px;
+  border-radius:16px;
+  margin-bottom:15px;
+}
+
+.page{display:none}
+.page.active{display:block}
+
+.menu-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:15px;
+}
+
+.menu-item img{
+  width:100%;
+  border-radius:12px;
+}
+
+input,select{
+  width:100%;
+  padding:8px;
+  margin-bottom:6px;
+  border-radius:8px;
+  border:1px solid #ddd;
+}
+
+.btn-primary{
+  background:#ff69b4;
+  color:#fff;
+  border:none;
+  padding:10px;
+  border-radius:10px;
+  width:100%;
+}
+
+.btn-ghost{
+  background:#eee;
+  border:none;
+  padding:10px;
+  border-radius:10px;
+  width:100%;
+  margin-top:5px;
+}
+
+.total{
+  text-align:right;
+  margin-top:10px;
+}
+
+#toast{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#ff69b4;
+  color:#fff;
+  padding:12px 18px;
+  border-radius:12px;
+  display:none;
+  font-weight:600;
+}
+
+/* QR MODAL */
+#qrBackdrop{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.5);
+}
+
+#qrModal{
+  display:none;
+  position:fixed;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  background:#fff;
+  padding:20px;
+  border-radius:16px;
+  text-align:center;
+}
+#qrModal img{
+  width:220px;
+}
+
+/* ควบคุมการแสดงหน้า */
+.page {
+  display: none;
+}
+
+.page.active {
+  display: block;
+}
