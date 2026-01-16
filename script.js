@@ -188,11 +188,33 @@ function downloadQR(){
 
 // ---------- ORDER ----------
 function confirmOrder(){
-  cart=[];
-  localStorage.removeItem("cart");
-  saveCart();
-  renderCart();
-  toast("✅ สั่งซื้อเรียบร้อย");
+  let detail = cart.map((c, i) =>
+    `${i+1}. ${c.name}
+- ${c.size} | ${c.sweet} | ${c.temp}
+- ท็อปปิ้ง: ${c.top}
+- จำนวน: ${c.qty}
+`
+  ).join("\n");
+
+  const message = `
+🧋 มีออเดอร์ใหม่ JuicyJoy
+------------------
+${detail}
+------------------
+💰 รวม ${totalPrice.innerText} บาท
+`;
+
+  fetch("ใส่_WEB_APP_URL_ตรงนี้", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ message })
+  });
+
+  alert("สั่งซื้อเรียบร้อย 🎉");
+  cart = [];
+  cartCount.innerText = 0;
   showPage("menuPage");
 }
 
