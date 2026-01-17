@@ -204,7 +204,7 @@ ${detail}
 💰 รวม ${totalPrice.innerText} บาท
 `;
 
-  fetch("ใส่_WEB_APP_URL_ตรงนี้", {
+  fetch("https://script.google.com/macros/s/AKfycbwQYlqpc0W1U5BIFGwn0t-jXfOzsx8cd9MaKgSdEV_iOpcBdjMLCPpDTvQOcxY6mjN5/exec", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
